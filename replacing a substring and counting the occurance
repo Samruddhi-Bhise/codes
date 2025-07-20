@@ -1,0 +1,36 @@
+def count_dollar_groups(s):
+    if len(s) < 2:
+        print("The string must have at least 2 characters.")
+        return
+
+    key = s[:2]  # First two characters as the target substring
+    result = ""
+    i = 0
+
+    # Replace all occurrences of the key with '$'
+    while i < len(s):
+        if i + 1 < len(s) and s[i:i+2] == key:
+            result += '$'
+            i += 2
+        else:
+            result += s[i]
+            i += 1
+
+    # Count number of dollar groups
+    count = 0
+    in_dollar_group = False
+    for char in result:
+        if char == '$':
+            if not in_dollar_group:
+                count += 1
+                in_dollar_group = True
+        else:
+            in_dollar_group = False
+
+    print("Processed string:", result)
+    print("Dollar group count:", count)
+
+# Main code
+s = input("Enter the input string: ")
+count_dollar_groups(s)
+
