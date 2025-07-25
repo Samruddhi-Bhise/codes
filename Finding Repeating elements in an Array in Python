@@ -1,0 +1,14 @@
+def print_repeating(arr):
+    for i in range(len(arr)):
+        # Check if the element appears again in the remaining list
+        if arr[i] in arr[i+1:] and arr[i] not in arr[:i]:
+            print(arr[i])
+
+# Example usage
+arr = [10, 30, 40, 20, 10, 20, 50, 10]
+print_repeating(arr)
+
+
+OUTPUT
+10
+20
