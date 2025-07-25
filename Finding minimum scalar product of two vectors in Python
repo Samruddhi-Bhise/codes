@@ -1,0 +1,39 @@
+def min_scalar_product(vec1, vec2):
+    # Sort vec1 in ascending order
+    vec1.sort()
+    
+    # Sort vec2 in descending order
+    vec2.sort(reverse=True)
+
+    # Calculate scalar product
+    scalar_product = 0
+    for i in range(len(vec1)):
+        scalar_product += vec1[i] * vec2[i]
+
+    return scalar_product
+
+# Example usage
+v1 = [1, 3, 5]
+v2 = [2, 4, 1]
+result = min_scalar_product(v1, v2)
+print("Minimum Scalar Product:", result)
+
+OUTPUT:
+Minimum Scalar Product: 21
+
+
+
+
+
+
+
+
+
+The scalar product (dot product) of two vectors A and B is:
+Dot Product=A[0]×B[0]+A[1]×B[1]+…+A[n−1]×B[n−1]
+To minimize this scalar product:
+Sort one vector in ascending order.
+Sort the other vector in descending order.
+Then, multiply corresponding elements and sum them.
+
+
