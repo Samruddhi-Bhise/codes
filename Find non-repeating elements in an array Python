@@ -1,0 +1,20 @@
+# Function to return distinct elements
+def count_distinct(arr):
+    return set(arr)
+
+# Example usage
+arr = [1, 2, 2, 3, 4, 4, 5]
+distinct_elements = count_distinct(arr)
+
+print("Distinct elements:")
+for element in distinct_elements:
+    print(element)
+
+
+OUTPUT
+Distinct elements:
+1
+2
+3
+4
+5
