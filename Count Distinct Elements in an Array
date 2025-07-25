@@ -1,0 +1,22 @@
+# Function to count distinct elements USING SET
+def count_distinct(arr):
+    return len(set(arr))
+
+# Example usage
+arr = [1, 2, 2, 3, 4, 4, 5]
+print("Number of distinct elements:", count_distinct(arr))
+
+-------------------------------------------------------------------------------------
+
+
+#WITHOUT USING SET
+def count_distinct(arr):
+    distinct = []
+    for item in arr:
+        if item not in distinct:
+            distinct.append(item)
+    return len(distinct)
+
+# Example usage
+arr = [1, 2, 2, 3, 4, 4, 5]
+print("Number of distinct elements:", count_distinct(arr))
