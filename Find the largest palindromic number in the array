@@ -1,0 +1,15 @@
+# Function to check if a number is a palindrome
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+# Function to find the largest palindromic number in the list
+def largest_palindrome(arr):
+    max_palindrome = -1
+    for num in arr:
+        if is_palindrome(num) and num > max_palindrome:
+            max_palindrome = num
+    return max_palindrome
+
+# Example usage
+arr = [1, 232, 5545455, 909090, 161]
+print("Largest Palindrome:", largest_palindrome(arr))
