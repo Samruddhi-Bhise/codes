@@ -18,3 +18,9 @@ Distinct elements:
 3
 4
 5
+
+
+
+
+BY USING  print(element, end = " ") we can print elements in a single line
+1 2 3 4 5 
