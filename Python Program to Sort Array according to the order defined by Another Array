@@ -1,0 +1,30 @@
+def sortByOtherArray(arr1, arr2):
+    result = []
+    
+    # Step 1: Count frequency of each element in arr1
+    freq = {}
+    for num in arr1:
+        freq[num] = freq.get(num, 0) + 1
+
+    # Step 2: Add elements of arr1 that are in arr2 (in arr2 order)
+    for num in arr2:
+        if num in freq:
+            result.extend([num] * freq[num])  # Add num freq[num] times
+            del freq[num]  # Remove from dict once added
+
+    # Step 3: Add remaining elements in sorted order
+    remaining = []
+    for num in freq:
+        remaining.extend([num] * freq[num])
+    remaining.sort()
+
+    result.extend(remaining)
+
+    return result
+
+# Driver Code
+arr1 = [20, 1, 20, 5, 7, 1, 9, 39, 6, 18, 18]
+arr2 = [20, 1, 18, 39]
+
+sorted_arr = sortByOtherArray(arr1, arr2)
+print(sorted_arr)
