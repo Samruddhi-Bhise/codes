@@ -13,3 +13,21 @@ for i in range(0, len(arr)):
      second = arr[i]
 
 print(second)
+
+
+
+second method
+
+
+def smallest_largest(arr):
+    n=len(arr)
+    
+    arr.sort()
+    
+    for i in range(0, n+1, 1):
+        if arr[i+1] != arr[0]:
+            return arr[i+1]
+            
+if __name__ == "__main__":
+    arr = [12, 35, 1, 10, 34, 1]
+    print(smallest_largest(arr))
