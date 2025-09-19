@@ -11,5 +11,5 @@ def longest_palindrome(strings):
     return longest
 
 # Example usage
-words = ["apple", "racecar", "madam", "banana", "noon"]
+word = ["apple", "racecar", "madam", "banana", "noon"]
 print("Longest Palindromic String:", longest_palindrome(words))
