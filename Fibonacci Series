@@ -6,3 +6,13 @@ def fibonacci(n):
 
 # Example: print first 10 numbers
 fibonacci(10)
+
+
+def fib_recursive(n):
+    if n <= 1:
+        return n
+    return fib_recursive(n-1) + fib_recursive(n-2)
+
+# Example
+for i in range(10):
+    print(fib_recursive(i), end=" ")
