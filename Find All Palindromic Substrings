@@ -1,0 +1,92 @@
+def palindromic_substrings(s):
+    result = []
+    n = len(s)
+
+    # expand around center helper
+    def expand(l, r):
+        while l >= 0 and r < n and s[l] == s[r]:
+            result.append(s[l:r+1])
+            l -= 1
+            r += 1
+
+    # for every index, treat it as the center
+    for i in range(n):
+        expand(i, i)       # odd length palindromes
+        expand(i, i + 1)   # even length palindromes
+    
+    return result
+
+
+
+Step-by-Step Explanation
+
+Goal:
+We want to find all substrings of the string s that are palindromes.
+A palindrome is a string that reads the same forwards and backwards, like aba or abba.
+
+Idea: "Expand Around Center"
+Every palindrome has a center:
+
+Odd length palindrome → center is a single character (e.g., aba, center is b).
+
+Even length palindrome → center is between two characters (e.g., abba, center is between 2nd b and 3rd b).
+
+So, if we take every index in the string and expand outward (left and right), we can capture all palindromes.
+
+Helper Function: expand(l, r)
+
+Takes two pointers: l (left) and r (right).
+
+While the characters match (s[l] == s[r]) and we’re within bounds:
+
+Add substring s[l:r+1] to the result list.
+
+Move outward (l -= 1, r += 1) to check for a bigger palindrome.
+
+Main Loop:
+
+for i in range(n):
+    expand(i, i)       # odd-length palindromes
+    expand(i, i + 1)   # even-length palindromes
+
+
+First call → treat index i as the middle of an odd palindrome (like aba).
+
+Second call → treat the gap between i and i+1 as the middle of an even palindrome (like abba).
+
+Example Walkthrough: s = "abba"
+
+Sorted substrings as found:
+
+At i = 0:
+
+Odd: "a"
+
+Even: expand(0,1) → "ab" (not palindrome)
+
+At i = 1:
+
+Odd: "b", "bb", "abba"
+
+Even: expand(1,2) → "bb"
+
+At i = 2:
+
+Odd: "b"
+
+Even: expand(2,3) → "ba" (not palindrome)
+
+At i = 3:
+
+Odd: "a"
+
+Final result:
+['a', 'b', 'bb', 'abba', 'b', 'a']
+
+Complexity
+
+Time Complexity: O(n²) → For each center (n centers), expansion can go up to n in worst case.
+
+Space Complexity: O(n²) for storing substrings (since there can be that many).
+
+
