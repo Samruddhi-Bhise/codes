@@ -1,0 +1,10 @@
+Here I’ll take common characters count ÷ total characters as the match percentage. (In interviews, ask for clarification!)
+
+def matching_percentage(s1, s2):
+    set1, set2 = set(s1), set(s2)
+    common = len(set1 & set2)
+    total = len(set1 | set2)
+    return (common / total) * 100
+
+# Example
+print(matching_percentage("abcde", "bcdxyz"))  # Output: 42.857...
